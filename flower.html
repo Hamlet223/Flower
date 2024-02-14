@@ -9,7 +9,12 @@
     <title>flowers</title>
 </head>
 <body class="container">
-  <!-- Pembuat code: https://codepen.io/mdusmanansari/pen/BamepLe -->
+  <audio id="audio" autoplay>
+    <source src="frownie.mp3" type="audio/mp3">
+    <source src="/song/frownies.mp4" type="audio/mp4">
+  </audio>
+     
+    <div class="title">Estas flores son un reflejo para traerte alegría y sonrisas</div>
     <div class="night"></div>
     <div class="flowers">
       <div class="flower flower--1">
@@ -290,6 +295,7 @@
         <div class="grow-ans" style="--d:4.8s">
           <div class="leaf leaf--3"></div>
         </div>
+        <div class="title">Hola amigos</div>
       </div>
   
       <div class="long-g long-g--7">
@@ -308,5 +314,25 @@
       </div>
     </div>
     <script src="main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var audio = document.getElementById('audio');
+
+          // Agrega un evento de clic al documento
+          document.addEventListener('click', function() {
+              // Verifica si el audio ya está pausado o detenido
+              if (audio.paused || audio.ended) {
+                  // Inicia la reproducción del audio
+                  audio.play();
+              }
+          });
+
+          audio.addEventListener('ended', function() {
+              // Reinicia la reproducción del audio
+              audio.currentTime = 0; // Reinicia la reproducción al principio
+              audio.play(); // Reproduce el audio nuevamente
+          });
+      });
+  </script>
   </body>
 </html>
